@@ -18,7 +18,7 @@ int check_cycle(listint_t *list)
 	slower = list->next;
 	/*Move two pointers*/
 	faster = list->next->next;
-	while (slower && faster)
+	while (faster->next && slower && faster)
 	{
 		/* Check cycle */
 		if (slower == faster)
