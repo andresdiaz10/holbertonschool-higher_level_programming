@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * check_cycle - check a cycle of a linked list using de floyd algorithm
+ * check_cycle - check a cycle of a linked list using floyd algorithm
  * @list: linked list
  *
  * Return: 1 if is a cycle, otherwhise 0
