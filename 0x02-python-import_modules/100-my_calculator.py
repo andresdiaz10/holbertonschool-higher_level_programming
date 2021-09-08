@@ -7,9 +7,9 @@ if __name__ == "__main__":
         sys.exit(1)
     a = int(sys.argv[1])
     b = int(sys.argv[3])
-    get_op = {"+": add, 
-              "-": sub, 
-              "*": mul, 
+    get_op = {"+": add,
+              "-": sub,
+              "*": mul,
               "/": div}
     if sys.argv[2] not in list(get_op.keys()):
         print("Unknown operator. Available operators: +, -, * and /")
