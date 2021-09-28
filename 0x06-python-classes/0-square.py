@@ -1,4 +1,7 @@
 #!/usr/bin/python3
-class Square:
+"""A void Square Class"""
 
+
+class Square:
+    """Square void"""
     pass
