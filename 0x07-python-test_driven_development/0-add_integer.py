@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
-#Andres Zapata
+#!/usr/bin/python3
 """A function that adds 2 integers"""
+
 
 def add_integer(a, b=98):
     """Return the add of a and b.
