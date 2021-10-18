@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """base.py: Define a base model for geometric objects"""
 import json
-
+import csv
 
 class Base:
     """Base model for all geometrics classes
@@ -69,3 +69,19 @@ class Base:
                 return [cls.create(**index) for index in tmp]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """write in to csv file"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as file:
+            if list_objs == [] or list_objs is None:
+                file.write("[]")
+            else:
+                if cls.__name__ == "Square":
+                    rownames = ["id", "size", "x", "y"]
+                else:
+                    rownames = ["id", "width", "height", "x", "y"]
+                aux = csv.DictWriter(file, rownames=rownames)
+                for index in list_objs:
+                    aux.writerow(index.to_dictionary())
