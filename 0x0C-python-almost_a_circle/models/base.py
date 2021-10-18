@@ -2,6 +2,8 @@
 """base.py: Define a base model for geometric objects"""
 import json
 import csv
+import turtle
+
 
 class Base:
     """Base model for all geometrics classes
@@ -85,3 +87,31 @@ class Base:
                 aux = csv.DictWriter(file, rownames=rownames)
                 for index in list_objs:
                     aux.writerow(index.to_dictionary())
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """draw the geometric figure"""
+        window = turtle.Turtle()
+        window.screen.bgcolor("#000000")
+        window.pensize(5)
+        window.color("#FFFFFF")
+        for rectangle_class in list_rectangles:
+            window.up()
+            window.goto(rectangle_class.x, rectangle_class.y)
+            window.down()
+            for index in range(2):
+                window.forward(rectangle_class.width)
+                window.left(90)
+                window.forward(rectangle_class.height)
+                window.left(90)
+        window.color("#FFC0CB")
+        for square_class in list_squares:
+            window.up()
+            window.goto(square_class.x, square_class.y)
+            window.down()
+            for index in range(2):
+                window.forward(square_class.width)
+                window.right(90)
+                window.forward(square_class.height)
+                window.right(90)
+        turtle.exitonclick()
