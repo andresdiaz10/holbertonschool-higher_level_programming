@@ -36,3 +36,34 @@ class Square(Rectangle):
             "x": self.x,
             "y": self.y
         }
+
+    def update(self, *args, **kwargs):
+        """update attributes of the class"""
+        if args and len(args) != 0:
+            aux = 0
+            for index in args:
+                if aux == 0:
+                    if index is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = index
+                elif aux == 1:
+                    self.size = index
+                elif aux == 2:
+                    self.x = index
+                elif aux == 3:
+                    self.y = index
+                a += 1
+        elif kwargs and len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "id":
+                    if value is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = value
+                elif key == "size":
+                    self.size = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
