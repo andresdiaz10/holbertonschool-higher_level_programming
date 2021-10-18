@@ -40,3 +40,32 @@ class Base:
             else:
                 tmp = [index.to_dictionary() for index in list_objs]
                 file.write(Base.to_json_string(tmp))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """that returns the list of the JSON string representation"""
+        if json_string == "[]" or json_string is None:
+            return []
+        return json.loads(json_string)
+    
+    @classmethod
+    def create(cls, **dictionary):
+        """that returns an instance with all attributes already set"""
+        if dictionary != {} and dictionary:
+            if cls.__name__ == "Square":
+                new_obj = cls(1)
+            else:
+                new_obj = cls(1, 1)
+            new_obj.update(**dictionary)
+            return new_obj
+
+    @classmethod
+    def load_from_file(cls):
+        """that returns a list of instances:"""
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r") as file:
+                tmp = Base.from_json_string(file.read())
+                return [cls.create(**index) for index in tmp]
+        except IOError:
+            return []
