@@ -53,7 +53,7 @@ class Square(Rectangle):
                     self.x = index
                 elif aux == 3:
                     self.y = index
-                a += 1
+                aux += 1
         elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":
