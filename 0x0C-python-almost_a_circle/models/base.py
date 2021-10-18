@@ -11,7 +11,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """ Init a new base object
+        """Init a new base object
 
         Arguments:
             id (int): id of the new base object
