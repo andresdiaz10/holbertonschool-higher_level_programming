@@ -34,6 +34,7 @@ class Rectangle(Base):
         if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
+
     @property
     def height(self):
         """Get the value of height"""
@@ -72,3 +73,27 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """return the area."""
+        return self.width * self.height
+
+    def display(self):
+        """print a rectangle using #"""
+        if self.width == 0 or self.height == 0:
+            print("")
+            return
+        for y in range(self.y):
+            print("")
+        for h in range(self.height):
+            for x in range(self.x):
+                print(" ", end="")
+            for w in range(self.width):
+                print("#", end="")
+            print("")
+
+    def __str__(self):
+        """Return the representation of the class Rectangle."""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
