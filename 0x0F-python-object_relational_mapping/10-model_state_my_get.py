@@ -22,7 +22,7 @@ if __name__ == "__main__":
     flag = 0
     for index in session.query(State):
         if index.name == argv[4]:
-            print({}.format(index.id))
+            print("{}".format(index.id))
             flag = 1
             break
     if flag == 0:
